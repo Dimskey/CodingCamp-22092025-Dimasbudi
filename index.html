@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,50 +7,243 @@
  
     <!-- tailwind cdn -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- lotties -->
+    <script
+  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js"
+  type="module"
+></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
-   <!-- Header content -->
-    <header 
-    id="header" 
-    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out bg-transparent">
-    
-    <div class="mx-auto flex h-16 w-full items-center justify-between px-5">
-      <!-- logo -->
-      <img 
-        src="https://cdn.simpleicons.org/coffeescript/FEFEFE" 
-        alt="logo"
-        class="w-[40px]"
-      >
+  <!-- Header content -->
+<header 
+  id="header" 
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out bg-transparent">
+  
+  <div class="mx-auto flex h-16 w-full items-center justify-between px-5">
+    <!-- logo -->
+    <img 
+      src="https://cdn.simpleicons.org/coffeescript/FEFEFE" 
+      alt="logo"
+      class="w-[40px]"
+    >
 
-      <!-- nav menu -->
-      <nav>
-        <ul class="flex flex-row items-center gap-5 font-medium text-white">
-          <li><a href="#home" class="hover:text-black">Home</a></li>
-          <li><a href="#about" class="hover:text-black">About</a></li>
-          <li><a href="#product" class="hover:text-black">Product</a></li>
-          <li><a href="#contact" class="hover:text-black">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- nav menu -->
+    <nav>
+      <ul class="flex flex-row items-center gap-5 font-medium text-white">
+        <li><a href="#" class="hover:text-black">Home</a></li>
+        <li><a href="#about" class="hover:text-black">About</a></li>
+        <li><a href="#menu" class="hover:text-black">Menu</a></li>
+        <li><a href="#contact" class="hover:text-black">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
       <!-- bg-mainpage -->
 <div class="bg-[url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] 
             bg-cover bg-center bg-fixed h-screen w-full">
   <div class="flex items-center justify-center h-full bg-black/50">
-    <h1 class="text-white text-5xl font-bold">Welcome</h1>
+    <h1 class="text-white text-4xl font-bold text-center">Welcome <span id ="username"></span> to Coffe Shop</h1>
   </div>
 </div>
 
 
    <!-- Main content -->
-   <main>
-      <div class=" bg-black flex text-white">
+  <main>
+  <!-- About Section -->
+  <div id="about" class="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+    <!-- Gambar -->
+    <div class="relative">
+      <img 
+        src="https://images.unsplash.com/photo-1497636577773-f1231844b336?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+        alt="coffee beans"
+        class="h-full w-full object-cover"
+      >
+    </div>
+
+    <!-- Teks + Lottie -->
+    <div class="p-8 flex flex-col justify-center bg-yellow-700">
+      <h1 class="text-white text-4xl text-center font-medium mb-5">
+        About Us
+      </h1>
+      <p class="text-white mb-8 text-justify leading-relaxed">
+        At Coffee Shop, we are more than just a place to grab your daily caffeine fix. 
+        We started with a simple dream: to share our love for coffee and create a space 
+        where everyone feels at home.
+        <br><br>
+        Every cup is crafted with care, using freshly roasted beans sourced from trusted 
+        local farmers and global partners who share our values of sustainability and quality. 
+        Whether you’re here to start your day with a strong espresso, catch up with friends 
+        over a latte, or simply find a quiet corner to unwind, our café is designed for you.
+        <br><br>
+        We believe coffee has the power to bring people together, spark conversations, 
+        and inspire ideas. That’s why we’re committed to serving not just great coffee, 
+        but also warmth, comfort, and community.
+      </p>
+      <div class="flex items-center justify-center">
+        <dotlottie-wc
+          src="https://lottie.host/6c011a42-07a2-4164-b1bc-39fe1f7be365/yzy2rVBCSu.lottie"
+          style="width: 400px; height: 400px"
+          autoplay
+          loop
+        ></dotlottie-wc>
       </div>
-   </main>
+    </div>
+  </div>
+
+  <!-- Menu Section -->
+  <section id="menu" class="bg-gray-100 py-12">
+      <div class="container mx-auto px-5">
+      <h1 class="text-4xl font-bold text-center mb-10 text-yellow-800">
+        Our Menu
+      </h1>
+
+      <!-- Horizontal Scroll -->
+      <div class="flex gap-6 overflow-x-auto pb-4">
+  <!-- Item 1 -->
+  <div onclick="openPopup('Espresso','Rich, bold, and full-bodied. Perfect for a strong start to your day.','https://images.unsplash.com/photo-1610889556528-9a770e32642f?q=80&w=1315&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
+       class="min-w-[250px] bg-white shadow-lg rounded-xl p-4 cursor-pointer hover:scale-105 transition">
+    <img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?q=80&w=1315&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Espresso" class="w-full h-40 object-cover rounded-lg mb-4">
+    <h2 class="text-lg font-semibold text-gray-800 text-center">Espresso</h2>
+  </div>
+
+  <!-- Item 2 -->
+  <div onclick="openPopup('Caffè Latte','Smooth blend of espresso and steamed milk with a creamy finish.','https://images.unsplash.com/photo-1593443320739-77f74939d0da?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
+       class="min-w-[250px] bg-white shadow-lg rounded-xl p-4 cursor-pointer hover:scale-105 transition">
+    <img src="https://images.unsplash.com/photo-1593443320739-77f74939d0da?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Latte" class="w-full h-40 object-cover rounded-lg mb-4">
+    <h2 class="text-lg font-semibold text-gray-800 text-center">Caffè Latte</h2>
+  </div>
+
+  <!-- Item 3 -->
+  <div onclick="openPopup('Cappuccino','A perfect balance of espresso, milk, and foam for a classic taste.','https://images.unsplash.com/photo-1710173472469-9d28e977914c?q=80&w=916&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
+       class="min-w-[250px] bg-white shadow-lg rounded-xl p-4 cursor-pointer hover:scale-105 transition">
+    <img src="https://images.unsplash.com/photo-1710173472469-9d28e977914c?q=80&w=916&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cappuccino" class="w-full h-40 object-cover rounded-lg mb-4">
+    <h2 class="text-lg font-semibold text-gray-800 text-center">Cappuccino</h2>
+  </div>
+
+  <!-- Item 4 -->
+  <div onclick="openPopup('Mocha','A delightful mix of espresso, chocolate, and steamed milk for coffee and chocolate lovers.','https://images.unsplash.com/photo-1618576230663-9714aecfb99a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
+       class="min-w-[250px] bg-white shadow-lg rounded-xl p-4 cursor-pointer hover:scale-105 transition">
+    <img src="https://images.unsplash.com/photo-1618576230663-9714aecfb99a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mocha" class="w-full h-40 object-cover rounded-lg mb-4">
+    <h2 class="text-lg font-semibold text-gray-800 text-center">Mocha</h2>
+  </div>
+
+  <!-- Item 5 -->
+  <div onclick="openPopup('Americano','Espresso diluted with hot water for a smooth, mellow coffee experience.','https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
+       class="min-w-[250px] bg-white shadow-lg rounded-xl p-4 cursor-pointer hover:scale-105 transition">
+    <img src="https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Americano" class="w-full h-40 object-cover rounded-lg mb-4">
+    <h2 class="text-lg font-semibold text-gray-800 text-center">Americano</h2>
+  </div>
+
+  <!-- Item 6 -->
+  <div onclick="openPopup('Macchiato','Espresso topped with a small amount of milk foam for a bold yet smooth flavor.','https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
+       class="min-w-[250px] bg-white shadow-lg rounded-xl p-4 cursor-pointer hover:scale-105 transition">
+    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Macchiato" class="w-full h-40 object-cover rounded-lg mb-4">
+    <h2 class="text-lg font-semibold text-gray-800 text-center">Macchiato</h2>
+  </div>
+
+  <!-- Item 7 -->
+  <div onclick="openPopup('Cold Brew','Slow-brewed for hours, served chilled for a smooth and refreshing coffee experience.','https://images.unsplash.com/photo-1578612599351-434b8ff87a70?q=80&w=750&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" 
+       class="min-w-[250px] bg-white shadow-lg rounded-xl p-4 cursor-pointer hover:scale-105 transition">
+    <img src="https://images.unsplash.com/photo-1578612599351-434b8ff87a70?q=80&w=750&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cold Brew" class="w-full h-40 object-cover rounded-lg mb-4">
+    <h2 class="text-lg font-semibold text-gray-800 text-center">Cold Brew</h2>
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  <!-- Popup Modal -->
+  <div id="popup" class="fixed inset-0 hidden items-center justify-center bg-black/60 z-50">
+    <div id="popupContent" 
+         class="bg-white rounded-xl shadow-lg w-96 p-6 relative transform transition-all duration-300 opacity-0 translate-y-5">
+      <!-- Close Button -->
+      <button onclick="closecontent()" class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl">&times;</button>
+
+      <!-- Image -->
+      <img id="popupImage" src="" alt="" class="w-full h-48 object-cover rounded-lg mb-4">
+
+      <!-- Title -->
+      <h2 id="popupTitle" class="text-2xl font-bold text-gray-800 mb-2"></h2>
+
+      <!-- Description -->
+      <p id="popupDesc" class="text-gray-600 mb-4"></p>
+    </div>
+  </div>
+  </section>
+</main>
+
 
 <!-- Footer Content -->
-   <Footer></Footer>
-   <script src="script.js"></script>
+   <footer id="contact" class="bg-yellow-800 text-white p-10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Alamat -->
+    <div>
+      <h2 class="text-2xl font-semibold mb-3">Alamat</h2>
+      <p>Coffee Shop Jalan Wakanda No. 21</p>
+      <p>Uchiha District,Konoha</p>
+      <p>Telp: ++ 812-3456-7890</p>
+    </div>
+
+    <!-- Sosial Media -->
+    <div>
+      <h2 class="text-2xl font-semibold mb-3">Ikuti Kami</h2>
+      <div class="flex space-x-4">
+        <a href="#" class="hover:text-gray-300 text-2xl"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="hover:text-gray-300 text-2xl"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-gray-300 text-2xl"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+     <div>
+      <h2 class="text-2xl font-semibold mb-3">Reservasi</h2>
+      <form id="reservationForm" class="space-y-3">
+        <div>
+          <input type="text" id="name" placeholder="Nama" class="w-full p-2 rounded text-white border border-gray-300 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500">
+          <small id="error-name" class="text-red-400 hidden">Nama wajib diisi</small>
+        </div>
+
+        <div>
+          <input type="email" id="email" placeholder="Email" class="w-full p-2 rounded text-white border border-gray-300 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500">
+          <small id="error-email" class="text-red-400 hidden">Email wajib diisi</small>
+        </div>
+
+        <div>
+          <input type="date" id="date" class="w-full p-2 rounded text-white border border-gray-300 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500">
+          <small id="error-date" class="text-red-400 hidden">Tanggal wajib diisi</small>
+        </div>
+
+        <div>
+          <input type="time" id="time" class="w-full p-2 rounded text-white border border-gray-300 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500">
+          <small id="error-time" class="text-red-400 hidden">Jam wajib diisi</small>
+        </div>
+
+        <div>
+          <input type="number" id="people" placeholder="Jumlah Orang" class="w-full p-2 rounded text-white border border-gray-300 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500">
+          <small id="error-people" class="text-red-400 hidden">Jumlah orang wajib diisi</small>
+        </div>
+
+        <button type="button" onclick="submitReservation()" class="w-full bg-white text-yellow-800 p-2 rounded font-semibold">Reservasi</button>
+      </form>
+     </div>
+
+  </div>
+</footer>
+
+<!-- Popup Sukses -->
+<div id="popupSuccess" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white text-yellow-800 p-6 rounded-lg shadow-lg text-center w-80">
+    <h2 class="text-2xl font-bold mb-4">Reservasi Berhasil</h2>
+    <p>Terima kasih! Kami akan segera menghubungi Anda.</p>
+    <button onclick="closePopup()" class="mt-4 px-4 py-2 bg-yellow-800 text-white rounded">Tutup</button>
+  </div>
+</div>
+   <script src="/js/script.js"></script>
 </body>
 </html>
+
