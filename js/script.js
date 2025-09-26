@@ -1,4 +1,4 @@
-// Jalankan setelah DOM siap
+
 document.addEventListener("DOMContentLoaded", () => {
     welcomeMessage();
 
