@@ -1,7 +1,15 @@
 // Jalankan setelah DOM siap
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
     welcomeMessage();
-};
+
+    // Scroll header effect
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+        const isScrolled = window.scrollY > 50;
+        header.classList.toggle("bg-transparent", !isScrolled);
+        header.classList.toggle("liquid-glass", isScrolled);
+    });
+});
 
 // Fungsi welcome message
 function welcomeMessage() {
@@ -71,11 +79,3 @@ function submitReservation() {
 function closePopup() {
     document.getElementById("popupSuccess").classList.add("hidden");
 }
-
-// Scroll header effect
-const header = document.getElementById("header");
-window.addEventListener("scroll", () => {
-    const isScrolled = window.scrollY > 50;
-    header.classList.toggle("bg-transparent", !isScrolled);
-    header.classList.toggle("liquid-glass", isScrolled);
-});
