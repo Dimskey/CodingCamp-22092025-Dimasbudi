@@ -1,86 +1,81 @@
-welcomemassage();
+// Jalankan setelah DOM siap
+window.onload = () => {
+    welcomeMessage();
+};
 
-function welcomemassage() {
-    let username = prompt("Masukan nama");
-    
-    if (username) 
-        document.getElementById('username').textContent = username;
-     else {
-        document.getElementById('username').textContent = "Customer";
-    }
-}
-function openPopup(title, desc, img) {
-  document.getElementById('popupTitle').textContent = title;
-  document.getElementById('popupDesc').textContent = desc;
-  document.getElementById('popupImage').src = img;
-
-  const popup = document.getElementById('popup');
-  const content = document.getElementById('popupContent');
-
-  popup.classList.remove('hidden');
-  popup.classList.add('flex');
-
-  // animasi in
-  setTimeout(() => {
-    content.classList.remove('opacity-0', 'translate-y-5');
-    content.classList.add('opacity-100', 'translate-y-0');
-  }, 10);
+// Fungsi welcome message
+function welcomeMessage() {
+    let username = prompt("Masukkan nama");
+    document.getElementById('username').textContent = username || "Customer";
 }
 
-function closecontent() {
-  const popup = document.getElementById('popup');
-  const content = document.getElementById('popupContent');
+// Fungsi membuka popup
+function openPopupContent(title, desc, img) {
+    const popup = document.getElementById('popup');
+    const content = document.getElementById('popupContent');
 
-  // animasi out
-  content.classList.remove('opacity-100', 'translate-y-0');
-  content.classList.add('opacity-0', 'translate-y-5');
+    document.getElementById('popupTitle').textContent = title;
+    document.getElementById('popupDesc').textContent = desc;
+    document.getElementById('popupImage').src = img;
 
-  // delay
-  setTimeout(() => {
-    popup.classList.remove('flex');
-    popup.classList.add('hidden');
-  }, 300);
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+
+    // animasi in
+    setTimeout(() => {
+        content.classList.remove('opacity-0', 'translate-y-5');
+        content.classList.add('opacity-100', 'translate-y-0');
+    }, 10);
 }
 
+// Fungsi menutup popup content
+function closePopupContent() {
+    const popup = document.getElementById('popup');
+    const content = document.getElementById('popupContent');
+
+    // animasi out
+    content.classList.remove('opacity-100', 'translate-y-0');
+    content.classList.add('opacity-0', 'translate-y-5');
+
+    // delay hide
+    setTimeout(() => {
+        popup.classList.remove('flex');
+        popup.classList.add('hidden');
+    }, 300);
+}
+
+// Fungsi submit reservation
 function submitReservation() {
-  let valid = true;
+    let valid = true;
+    const fields = ["name", "email", "date", "time", "people"];
 
-  // ambil semua field
-  const fields = ["name", "email", "date", "time", "people"];
-  fields.forEach(field => {
-    const input = document.getElementById(field);
-    const error = document.getElementById(`error-${field}`);
-    if (!input.value.trim()) {
-      error.classList.remove("hidden");
-      valid = false;
-      input.classList.add("border", "border-red-500"); // highlight merah
-    } else {
-      error.classList.add("hidden");
-      input.classList.remove("border", "border-red-500");
+    fields.forEach(field => {
+        const input = document.getElementById(field);
+        const error = document.getElementById(`error-${field}`);
+        const value = input.value.trim();
+
+        // toggle error & border
+        error.classList.toggle("hidden", !!value);
+        input.classList.toggle("border-red-500", !value);
+
+        if (!value) valid = false;
+    });
+
+    if (valid) {
+        document.getElementById("reservationForm").reset();
+        document.getElementById("popupSuccess").classList.remove("hidden");
     }
-  });
-
-  // jika semua valid → tampilkan popup
-  if (valid) {
-    document.getElementById("reservationForm").reset();
-    document.getElementById("popupSuccess").classList.remove("hidden");
-  }
 }
 
+// Fungsi menutup popup success
 function closePopup() {
-  document.getElementById("popupSuccess").classList.add("hidden");
-  
+    document.getElementById("popupSuccess").classList.add("hidden");
 }
 
+// Scroll header effect
 const header = document.getElementById("header");
-
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    header.classList.remove("bg-transparent");
-    header.classList.add("liquid-glass");
-  } else {
-    header.classList.add("bg-transparent");
-    header.classList.remove("liquid-glass");
-  }
+    const isScrolled = window.scrollY > 50;
+    header.classList.toggle("bg-transparent", !isScrolled);
+    header.classList.toggle("liquid-glass", isScrolled);
 });
-
